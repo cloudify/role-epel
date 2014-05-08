@@ -5,7 +5,7 @@
     - epel
 
 - name: copy GPG key
-  copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6 owner=root group=root mode=0644
+  copy: src=RPM-GPG-KEY-EPEL-5 dest=/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-5 owner=root group=root mode=0644
   tags:
     - epel
 
@@ -19,13 +19,13 @@
   tags:
     - epel
 
-- name: ensure directory /usr/share/doc/epel-release-6/
-  file: path=/usr/share/doc/epel-release-6/ state=directory recurse=yes
+- name: ensure directory /usr/share/doc/epel-release-5/
+  file: path=/usr/share/doc/epel-release-5/ state=directory recurse=yes
   tags:
     - epel
 
 - name: copy GPL
-  copy: src=GPL dest=/usr/share/doc/epel-release-6/ owner=root group=root mode=0644
+  copy: src=GPL dest=/usr/share/doc/epel-release-5/ owner=root group=root mode=0644
   tags:
     - epel
 
@@ -43,7 +43,7 @@
   template: src=epel-testing.repo dest=/etc/yum.repos.d/epel-testing.repo owner=root group=root mode=0644
   tags:
     - epel
-  
+
 - name: install epel-release
   yum: name=epel-release state={{ epel_state }} enablerepo=epel
   tags:
